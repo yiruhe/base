@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!--
+<!DOCTYPE 文档中的根元素名字 [
+
+<!ELEMENT 根元素 (根元素里面的内容+)> //+:代表多个  any:任何元素  empty:空(不能有任何东西)
+<!ELEMENT 根下的子元素 (子元素里面的内容)> //student (name,age,gender)  根元素必须按照这个顺序,一个也不能少
+<!ELEMENT 子的子元素 (子元素里面的内容)> //name (#CPDATA) (#CPDATA) :文本
+
+]>
+<!DOCTYPE 根节点  SYSTEM 路径>    //本地关联(约束文件)
+<!DOCTYPE 根节点  pulic(大写) "名字 DTD" " 网站">   //互联网关联(约束文件)
+ -->
+
+<!-- 
+	standalone 是否依赖其他文件
+
+	#PCDATA 字符串
+	IDREF: 一个
+	IDREFS : 这个值的定义必须是文档中出现的id属性值,可以多个用空格隔开 多个
+
+ -->
+
+        <!--|:单个-->
+<!DOCTYPE students[
+        <!ELEMENT students (student+)>
+        <!ELEMENT student (name|age)+>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT age EMPTY>
+
+        <!ATTLIST student sex (男|nv) #IMPLIED>
+        ]>
+        <!--attribute list-->
+        <!--<!ATTLIST 要定义的元素名 属性名 属性类型  属性说明  >-->
+<!--<!ATTLIST 要定义的元素名 属性名 属性类型  默认值("value") >-->
+<!--属性类型
+        CDATA： 属性为任意文本
+        #Eumerated :枚举  直接(内容)就可以了
+
+
+        属性说明: #reqired 必须 #implied 可选
+
+
+-->
+
+
+
+<students>
+        <student>
+            <name>张三</name>
+        </student>
+</students>
+
+
+
+

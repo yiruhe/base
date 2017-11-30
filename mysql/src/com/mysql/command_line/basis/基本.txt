@@ -1,0 +1,64 @@
+二维表是同类实体的各种属性的集合
+列：字段/属性
+行:一个对象
+
+数据库允许存多张表,进入数据库就要选哪张表
+
+数据库分两种:
+  1.系统数据库(系统自带的数据库);不能修改
+          information_schema:
+          perfomance_schema: 存储数据库服务器性能相关信息
+          mysql:存储数据库用户权限信息
+          test:
+my.ini
+配置的15个链接,超过15个,会去再申请 ，直到到达mysql配置文件的最大连接数
+
+//登录
+-u（用户名）  -p(密码) -P(端口号)  -h(主机名 )
+
+//断开
+exit；
+
+//设置密码
+set password for root@localhost = password("123456")； //设置密码为本地的root 用户
+
+updata mysql.user set password = password("123");
+
+flush privileges;
+
+
+//关闭mysql服务
+net stop mysql；
+
+//开启mysql服务
+net start mysql
+
+//查看端口号
+show varibles like "port";
+
+//查看存储引擎
+show engines\G
+
+//设置客户端编码为utf-8
+
+set character_set_client = "utf-8";
+
+
+//创建数据库（可以指定编码）（不能写-）
+
+create database  名字 charset utf8；
+
+//删除数据库
+drop database  名字;
+
+//使用
+use 数据库名;
+
+//查看表结构
+desc  表名; （describe）
+explain 表名;
+//查看表
+show tables;
+
+
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"  ?>
+<!--xs：命名空间的别字 可以自定义  一般xs-->
+<!--根节点: 只要是xml的schema方式约束都是以schema作为根节点-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+   targetNamespace="http://test.cn">
+<!--
+    此片段:xmlns:xs="http://www.w3.org/2001/XMLSchema"，表明此schema中使用的元素和数据类型来自于"http://www.w3.org/2001/XMLSchema"名称空间（namespace）
+    	这就是对w3c对schema约束文件的约束(xsd文件也是不能乱写的)
+
+    //别人使用你的schema 你就要定义你自己targetNamespace 自定义的命名空间  别人想用你的命名空间,别人就要使用这个属性里的值
+
+    attribute: name="属性名" type="属性类型" use="是否必填(required,optional)"
+    ref:"引用别的属性"通过name关联
+
+
+    elementFormDefault="unqualified"  qualified 全局必须加别名  unqualified  全局中的元素才加,子元素不受影响
+    1、在xml中，所有引用xsd的全局的元素都必须加上命名空间的前缀
+（例如xmlns:aa=http://www.example.org/classroom，全局元素都得加上aa）。
+    2、非全局的元素当设置为qualified时，必须添加命名空间的前缀。
+    3、非全局的元素当设置为unqualified时，不必也不能添加前缀。
+
+    All:无序的
+
+
+    属性组用属性组引用
+
+	
+	group元素:把一组元素组合在一起,以便他们能够被复合元素引用
+	
+-->
+    <xs:element name="book">
+        <xs:complexType>  <!-- 定义数据类型的,只能被element使用,修饰element -->
+            <!--minOccurs: 出现次数  sequence的属性  sequence对里面元素顺序有约束-->
+            <xs:sequence>
+                <xs:element name="bookname" type="xs:string" fixed="神雕"/>
+                <xs:element name="author" type="xs:string"/>
+                <xs:element name="price" type="xs:string"/>
+            </xs:sequence>
+            <!--
+            attribute要加在父元素：
+            attributeGroup,
+             schema,
+              complexType,
+               restriction(both simpleContent and complexContent),
+                extension (both simpleContent and complexContent)
+            -->
+            <xs:attribute name="id" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+    <!--fixed:固定值,不能不变-->
+
+</xs:schema>

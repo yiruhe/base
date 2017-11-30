@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<contacts xmlns="http://www.w3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3 node.xsd">
+    <student num="a">
+        <name>Hello</name>
+        <gender>man</gender>
+        <age>1</age>
+    </student>
+    <student num="b">
+        <name>back</name>
+        <gender>man</gender>
+        <age>1</age>
+    </student>
+    <student num="c">
+        <name>back</name>
+        <gender>man</gender>
+        <age>1</age>
+    </student>
+    <student num="e">
+        <name>西门吹雪</name>
+        <gender>man</gender>
+        <age>20</age>
+    </student>
+</contacts>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>jsp_filter</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  	<listener>
+  		<listener-class>listener.SessionListener</listener-class>
+  	</listener>
+  
+  
+  	<servlet>
+  		<servlet-name>Login</servlet-name>
+  		<servlet-class>demo.LoginServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>Login</servlet-name>
+  		<url-pattern>/login</url-pattern>
+  	</servlet-mapping>
+  
+  	<filter>
+  		<filter-name>LoginFilter</filter-name>
+  		<filter-class>demo.LoginDemoFilter</filter-class>
+  		<init-param>
+  			<param-name>encoding</param-name>
+  			<param-value>UTF-8</param-value>
+  		</init-param>
+  		<init-param>
+  			<param-name>verify</param-name>
+  			<param-value>true</param-value>
+  		</init-param>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>LoginFilter</filter-name>
+  		<url-pattern>/login</url-pattern>
+  	</filter-mapping>
+  
+  
+  
+<!--  
+	 <filter>
+	  	<filter-name>FilterOne</filter-name>
+	  	<filter-class>filter.FilterDemo</filter-class>
+	  </filter>
+	  
+	  <filter-mapping>
+	  	<filter-name>FilterOne</filter-name>
+	  			设置要拦截的资源  	
+	  	<url-pattern>/*</url-pattern>
+	  	<dispatcher>REQUEST</dispatcher>
+	  	<dispatcher>FORWARD</dispatcher>
+	  </filter-mapping>
+  
+   -->
+  
+  
+    <filter>
+  	<filter-name>FilterTwo</filter-name>
+  	<filter-class>filter.FilterDemo1</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>FilterTwo</filter-name>
+  			<!-- 设置要拦截的资源  	 -->
+  	<url-pattern>/filter1.jsp</url-pattern>
+  	<!--  默认 request -->
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
+  
+  
+    <filter>
+  	<filter-name>FilterThree</filter-name>
+  	<filter-class>filter.FilterDemo2</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>FilterThree</filter-name>
+  			<!-- 设置要拦截的资源  	 -->
+  	<url-pattern>/filter1.jsp</url-pattern>
+  </filter-mapping>
+  
+  
+  
+</web-app>

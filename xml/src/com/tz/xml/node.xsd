@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.w3">
+    <xs:element name="contacts">
+        <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element name="student">
+                        <xs:complexType >
+                                <xs:sequence>
+                                    <xs:element name="name" type="xs:string"/>
+                                    <xs:element name="gender" type="xs:string"/>
+                                    <xs:element name="age" type="xs:int"/>
+                                </xs:sequence>
+                             <xs:attribute name="num" type="xs:ID" use="required"/>
+                        </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
